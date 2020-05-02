@@ -19,9 +19,6 @@ if (
 ) {
   //class id
   $id = $_GET['id'];
-  // print_r($id);
-  // $data = $cclassroom->getList();
-  // $classroom = $data['ClassroomList'];
 
   $data = $cclassroom->getOneClassroom($id);
   $classroom = $data['OneClassroom'];
@@ -32,9 +29,6 @@ if (
   //print_r($classroomlist);
   $ccount = $cclassroom->getStudentCount($id);
   $count =  $ccount->student_count;
-  //print_r($ccount->student_count);
-  // print_r("getStudentList");
-
 } else if (
   isset($_GET['id2'])
   && filter_var($_GET['id2'], FILTER_VALIDATE_INT, array('min_range' => 1))
@@ -51,14 +45,8 @@ if (isset($_SESSION['user_id'])) {
     $role = $_SESSION['role'];
   }
   $user_id = $_SESSION['user_id'];
-  // if($role == 0 || $role == 2){
-  //   //staff 
-  //   $data = $cclass->getList();
-  //   $classroomlist = $data['ClassroomList'];
-  // } elseif ($role == 1) {
-  //   $data = $cclass->getAllStudentClassroom($user_id);
-  //   $classroomlist = $data['ClassroomList'];
-  // }
+} else {
+  echo '<script> location.replace("login.php"); </script>';
 }
 
 
@@ -154,9 +142,9 @@ if (isset($_SESSION['user_id'])) {
 
 
             <td>
-              <?php if ($user_id != $user->user_id) { ?>
+              <?php if ($user_id != $class->user_id) { ?>
                 <?php
-                echo '<a href="conversation_create.php?id=' . $user_id . '&id2=' . $user->user_id . '"><i class="fa fa-fw fa-comments" title=" Start sending messages to this User" style="color:#2D67EA; font-size:20px;"></i></a> ';
+                echo '<a href="conversation_create.php?id=' . $user_id . '&id2=' . $class->user_id . '"><i class="fa fa-fw fa-comments" title=" Start sending messages to this User" style="color:#2D67EA; font-size:20px;"></i></a> ';
 
 
                 ?>

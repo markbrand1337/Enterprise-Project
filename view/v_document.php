@@ -209,14 +209,14 @@ if (isset($_SESSION['user_id'])) {
 
                             </aside>
                         </div>
-                        <?php foreach ($userlist as $user) {
-                            if ($user->user_id == $document->user_id) {
-                                //echo '<a href="document_edit.php?id=" class="btn btn-primary px-3 py-1">Edit</a>';
-                                echo '<a href="document_delete.php?id=' . $document->id . '&id2=' . $document->classroom_id . '" class="btn btn-danger px-3 py-1">Delete</a>';
+                        <?php
+                        if ($user_id == $document->user_id) {
+                            //echo '<a href="document_edit.php?id=" class="btn btn-primary px-3 py-1">Edit</a>';
+                            echo '<a href="document_delete.php?id=' . $document->id . '&id2=' . $document->classroom_id . '" class="btn btn-danger px-3 py-1">Delete</a>';
                         ?>
 
                         <?php }
-                        } ?>
+                        ?>
                     </div>
                 </div>
 

@@ -141,7 +141,7 @@ if (
 									<p><a class="text-dark mb-3" href="dashboard.php?id=<?= $user->user_id ?>"><?= $user->first_name ?> <?= $user->last_name ?></a></p>
 									<?php if (isset($_SESSION['user_id'])) {
 										if ($_SESSION['user_id'] != $user->user_id) {
-											echo '<a href="#" class="btn btn-primary">Send Message</a>';
+											echo '<a href="conversation_create.php?id=' . $_SESSION['user_id'] . '&id2=' . $user->user_id . '" class="btn btn-primary">Send Message</a>';
 										}
 									}
 									?>

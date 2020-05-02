@@ -13,12 +13,14 @@ if (
 	$id2 = $_GET['id2'];
 	$controller = new c_Conversation();
 	$data = $controller->getOneConversation2($id, $id2);
+	$data1 = $controller->getOneConversation2($id2, $id);
 	// print_r($data);
-	$conv_id = $data->conversation_id;
-	if ($data == null) {
+
+	if ($data == null && $data1 == null) {
 		$controller->AddConversation($id, $id2);
 	} else {
 		//echo '<script> location.replace("conversation.php?conv_id=' . $conv_id . '"); </script>';
+		//$conv_id = $data->conversation_id;
 		echo '<script> location.replace("conversation.php"); </script>';
 	}
 }

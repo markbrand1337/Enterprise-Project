@@ -176,16 +176,16 @@ if (isset($_SESSION['user_id'])) {
 					<p class="card-text"><?= $comment->content ?></p>
 
 					<!-- <a href="comment_delete.php?id=0" class="btn btn-danger">Go to Post</a> -->
-					<?php foreach ($userlist as $user) {
-						if ($user->user_id == $comment->user_id) {
-							//echo '<a href="document_edit.php?id=" class="btn btn-primary px-3 py-1">Edit</a>';
-							echo '
+					<?php
+					if ($user_id == $comment->user_id) {
+						//echo '<a href="document_edit.php?id=" class="btn btn-primary px-3 py-1">Edit</a>';
+						echo '
 								<a href="comment_delete.php?id=' . $comment->comment_id . '&id2=' . $comment->post_id . '" class="btn btn-danger">Delete</a>
                             ';
 					?>
 
 					<?php }
-					} ?>
+					?>
 				</div>
 			</div>
 
