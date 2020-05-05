@@ -136,7 +136,7 @@ if (isset($_POST['send'])) {
 						<div class="">
 							<?php if ($meeting->start_at == null) {
 								echo '<a href="meeting_start.php?id=' . $meeting->id . '&id2=' . $meeting->classroom_id . '" class="btn btn-primary">Start</a>';
-							} else {
+							} else if ($meeting->end_at == null) {
 								echo '<a href="meeting_end.php?id=' . $meeting->id . '&id2=' . $meeting->classroom_id . '" class="btn btn-primary">End</a>';
 							} ?>
 
